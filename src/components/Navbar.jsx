@@ -9,8 +9,8 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-green-600 p-4">
-      <div className="flex items-center justify-between">
+    <nav className="bg-green-600">
+      <div className="flex items-center justify-between max-w-6xl mx-auto p-4">
         {/* my logo */}
         <div className="text-white text-2xl font-bold">EloraStores</div>
 

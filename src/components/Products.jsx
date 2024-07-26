@@ -8,25 +8,34 @@ function Products() {
   if (isLoading) return <div>Data is loading...</div>;
 
   return (
-    <div className="grid sm:grid-cols-4 gap-4">
+    <div className="grid sm:grid-cols-4 gap-x-4 gap-y-6">
       {data?.map((product) => (
-        <div key={product.id} className="max-w-5xl items-start p-6">
+        <div
+          key={product.id}
+          className="max-w-5xl items-start shadow-xl rounded-lg overflow-hidden bg-white group"
+        >
           <img
             src={product.image}
             alt={product.title}
-            className="w-full h-[250px]"
+            className="bg-white w-full h-[180px] object-cover group-hover:scale-[1.1] transition"
           />
-          <h4 className="line-clamp-1">{product.title}</h4>
-          <h4>{product.category}</h4>
-          <h4>${product.price}</h4>
-          <p className="line-clamp-3">{product.description}</p>
-          <div className="flex gap-4">
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">
-              Add to cart
-            </button>
-            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-              Buy Now
-            </button>
+          <div className="p-4">
+            <article className="space-y-1 mb-4">
+              <h4 className="line-clamp-1 font-extrabold">{product.title}</h4>
+              <h4 className="text-sm text-neutral-500">{product.category}</h4>
+              <h4 className="tracking-tight">${product.price}</h4>
+              <p className="line-clamp-2 text-xs text-neutral-700 tracking-tight">
+                {product.description}
+              </p>
+            </article>
+            <div className="flex justify-between items-center gap-4">
+              <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1.5 px-4 rounded-xl text-sm">
+                Buy Now
+              </button>
+              <button className="bg-white text-green-600 border border-green-600  font-bold py-1.5 px-4 rounded-xl text-sm">
+                Add to cart
+              </button>
+            </div>
           </div>
         </div>
       ))}
