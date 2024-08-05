@@ -1,7 +1,11 @@
 import React from "react";
-import { useProducts } from "../hooks/fetch.hook";
+import { useProducts } from "../hooks/products.hook";
+import { useCart } from "../stores/cart.store";
+import { useNavigate } from "react-router-dom";
 
 function Products() {
+  const navigate = useNavigate();
+  const cart = useCart();
   const { data, error, isLoading } = useProducts();
 
   if (error) return <div>An error has occurred</div>;
@@ -32,7 +36,20 @@ function Products() {
               <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1.5 px-4 rounded-xl text-sm">
                 Buy Now
               </button>
-              <button className="bg-white text-green-600 border border-green-600  font-bold py-1.5 px-4 rounded-xl text-sm">
+
+              <button
+                onClick={async () => {
+                  await cart.addItem({
+                    id: product?.id,
+                    quantity: 1,
+                    image: product?.image,
+                    price: product?.price,
+                    total_price: product?.price,
+                  });
+                  navigate("/cart");
+                }}
+                className="bg-white text-green-600 border border-green-600  font-bold py-1.5 px-4 rounded-xl text-sm"
+              >
                 Add to cart
               </button>
             </div>

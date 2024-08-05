@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,16 +33,16 @@ function Navbar() {
 
         <ul className="hidden md:flex space-x-4 text-white font-semibold">
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <Link to="/">Contact</Link>
           </li>
           <li>
-            <a href="#">Return policy</a>
+            <Link to="/">Return Policy</Link>
           </li>
           <li>
-            <a href="#">Free Delivery</a>
+            <Link to="/">Free Delivery</Link>
           </li>
         </ul>
       </div>
@@ -50,16 +51,16 @@ function Navbar() {
         <div className="md:hidden">
           <ul className="flex flex-col space-y-4 mt-4 text-white font-semibold">
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="/">Contact</Link>
             </li>
             <li>
-              <a href="#">Return policy</a>
+              <Link to="/">Return Policy</Link>
             </li>
             <li>
-              <a href="#">Free Delivery</a>
+              <Link to="/">Free Delivery</Link>
             </li>
           </ul>
         </div>
